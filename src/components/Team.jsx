@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { userContext } from './UserContext'
 export const Team = () => {
 
-const {state , dispatch} = useContext(userContext);
+const {state , dispatch } = useContext(userContext);
 
 
 
