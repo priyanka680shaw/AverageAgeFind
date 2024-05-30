@@ -16,7 +16,11 @@ export const Provider = ({children }) => {
         switch(action.type){
             case  "add_member_to_Team" : 
             return{
-                employeesData   : state.employeesData,
+                employeesData   : [...state.employeesData.filter((items)=>{
+                    if(items.id !== action.payload){
+                        return items
+                    }
+                })],
                 teamsData  : [...state.teamsData , ...state.employeesData.filter((items)=>{
                     if(items.id === action.payload){
                         totalAge = state.total +items.age
@@ -29,7 +33,11 @@ export const Provider = ({children }) => {
             
             case "remove_member_from_team" : 
                 return{
-                    employeesData   : state.employeesData,
+                    employeesData   :[...state.employeesData,...state.teamsData.filter((items)=>{
+                        if(items.id === action.payload){
+                            return items  
+                        }
+                    })],
                     teamsData  : [...state.teamsData.filter((items)=>{
                     if(items.id !== action.payload){
                         return items  

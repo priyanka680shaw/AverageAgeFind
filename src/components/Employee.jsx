@@ -9,7 +9,7 @@ console.log("employeePage" , state.employeesData)
   return (
         <>
             <div>
-                <div className='card p-4 bg-red-900 w-[500px] h-[650px] overflow-scroll'>
+                <div className='card p-4 bg-red-900 w-[500px] h-[650px] overflow-y-scroll overflow-x-hidden'>
                    {
                     state.employeesData.map((items )=>{
                         return(
